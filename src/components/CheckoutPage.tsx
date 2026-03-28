@@ -4,6 +4,7 @@ import { MapPin, CreditCard, CheckCircle, Loader2, Plus, ArrowLeft, Check } from
 import { auth, db, collection, addDoc, getDocs, onSnapshot, doc, getDoc } from '../firebase';
 import { cn } from '../lib/utils';
 import confetti from 'canvas-confetti';
+import emailjs from '@emailjs/browser';
 
 export const CheckoutPage = ({ cartItems, setCartItems, setCurrentPage, user }: any) => {
   const [addresses, setAddresses] = useState<any[]>([]);
@@ -101,6 +102,35 @@ export const CheckoutPage = ({ cartItems, setCartItems, setCurrentPage, user }: 
         console.error('Failed to send notification:', notifyError);
       }
       // --- END Notification Logic ---
+      
+      // --- Send Email via EmailJS ---
+      try {
+        const userDoc = await getDoc(doc(db, 'users', user.id));
+        const userData = userDoc.exists() ? userDoc.data() : {};
+        const phone = userData.phone || 'Not provided';
+        
+        const addressStr = `${selectedAddress.street}, ${selectedAddress.city}, ${selectedAddress.state} ${selectedAddress.zip}`;
+        const itemsStr = cartItems.map((item: any) => `${item.name} (x${item.quantity})`).join(', ');
+
+        const templateParams = {
+          name: user.name,
+          phone: phone,
+          address: addressStr,
+          items: itemsStr,
+          price: `₹${total}`
+        };
+
+        await emailjs.send(
+          'service_oovd3h8',
+          'template_0068kk3',
+          templateParams,
+          'vWvNXOM-LxetcpV0n'
+        );
+        console.log('Email notification sent successfully');
+      } catch (emailError) {
+        console.error('Failed to send email notification:', emailError);
+      }
+      // --- END Email Logic ---
       
       // Clear cart
       setCartItems([]);
