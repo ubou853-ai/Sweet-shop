@@ -1,0 +1,2 @@
+/api/fcm/*  https://fcm.googleapis.com/fcm/:splat  200
+/*  /index.html  200

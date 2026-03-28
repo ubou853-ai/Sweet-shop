@@ -1,0 +1,98 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isValidUser(data) {
+      return data.keys().hasAll(['uid', 'email']) &&
+             data.uid is string &&
+             data.email is string &&
+             (!('name' in data) || data.name is string) &&
+             (!('phone' in data) || data.phone is string) &&
+             (!('photoURL' in data) || data.photoURL is string) &&
+             (!('notificationsEnabled' in data) || data.notificationsEnabled is bool) &&
+             (!('createdAt' in data) || data.createdAt is string);
+    }
+    
+    function isValidAddress(data) {
+      return data.keys().hasAll(['street', 'city', 'state', 'zip']) &&
+             data.street is string &&
+             data.city is string &&
+             data.state is string &&
+             data.zip is string &&
+             (!('isDefault' in data) || data.isDefault is bool) &&
+             (!('createdAt' in data) || data.createdAt is string);
+    }
+    
+    function isValidWishlistItem(data) {
+      return data.keys().hasAll(['productId', 'addedAt']) &&
+             data.productId is number &&
+             data.addedAt is string;
+    }
+    
+    function isValidOrder(data) {
+      return data.keys().hasAll(['userId', 'userName', 'items', 'totalAmount', 'status', 'shippingAddress', 'paymentMethod', 'createdAt']) &&
+             data.userId is string &&
+             data.userName is string &&
+             data.items is list &&
+             data.totalAmount is number &&
+             data.status in ['Pending', 'Preparing', 'Delivered'] &&
+             data.shippingAddress is map &&
+             data.paymentMethod is string &&
+             data.createdAt is string;
+    }
+
+    function isValidReview(data) {
+      return data.keys().hasAll(['userId', 'userName', 'rating', 'comment', 'createdAt']) &&
+             data.userId is string &&
+             data.userName is string &&
+             data.rating is number &&
+             data.rating >= 1 && data.rating <= 5 &&
+             data.comment is string &&
+             data.createdAt is string;
+    }
+
+    match /users/{userId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidUser(request.resource.data) && request.resource.data.uid == userId;
+      allow update: if isOwner(userId) && isValidUser(request.resource.data) && request.resource.data.uid == resource.data.uid;
+      
+      match /addresses/{addressId} {
+        allow read: if isOwner(userId);
+        allow create: if isOwner(userId) && isValidAddress(request.resource.data);
+        allow update: if isOwner(userId) && isValidAddress(request.resource.data);
+        allow delete: if isOwner(userId);
+      }
+      
+      match /wishlist/{productId} {
+        allow read: if isOwner(userId);
+        allow create: if isOwner(userId) && isValidWishlistItem(request.resource.data);
+        allow update: if isOwner(userId) && isValidWishlistItem(request.resource.data);
+        allow delete: if isOwner(userId);
+      }
+    }
+    
+    match /orders/{orderId} {
+      allow read: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && isValidOrder(request.resource.data) && request.resource.data.userId == request.auth.uid;
+    }
+    
+    match /products/{productId}/reviews/{reviewId} {
+      allow read: if true;
+      allow create: if isAuthenticated() && isValidReview(request.resource.data) && request.resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && isValidReview(request.resource.data) && resource.data.userId == request.auth.uid && request.resource.data.userId == request.auth.uid;
+      allow delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+    
+    match /admin/device {
+      allow read, write: if true; // In a real app, restrict this to admins or authenticated users
+    }
+  }
+}
