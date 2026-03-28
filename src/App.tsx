@@ -44,7 +44,7 @@ export const ALL_PRODUCTS = [
 
 const CreatorBadge = () => (
   <div className="fixed top-0 right-0 z-[100] bg-black/70 backdrop-blur-md text-white text-[10px] sm:text-xs px-3 py-1.5 rounded-bl-xl shadow-lg border-b border-l border-white/10 flex items-center gap-1.5 transition-all hover:bg-black/90">
-    <span className="opacity-90">Created by Anish Kumar</span>
+    <span className="opacity-90">Developed by Anish Kumar</span>
     <span className="opacity-50">|</span>
     <span className="opacity-90">Instagram:</span>
     <a 
