@@ -11,33 +11,33 @@ import { auth, onAuthStateChanged, signOut, db, collection, addDoc, doc, setDoc,
 
 // --- Global Data ---
 export const ALL_PRODUCTS = [
-  { id: 1, name: 'Rajauli Special Chhena', price: 450, desc: 'Soft, spongy chhena soaked in light sugar syrup. A local legend.', category: 'Daily Delights', isBestseller: true, image: 'https://i.ibb.co/jvYv2MQZ/durga-puja-bhog-indian-sweet-rassogulla-indian-sweet-rassgulla-made-sugar-syrup-cottage-cheese-chenn.jpg', hoverImage: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500&auto=format&fit=crop&q=60' },
+  { id: 1, name: 'Rajauli Special Chhena', price: 450, desc: 'Soft, spongy chhena soaked in light sugar syrup. A local legend.', category: 'Daily Delights', isBestseller: true, image: 'https://i.ibb.co/Hk85VVT/1774262412832.png', hoverImage: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500&auto=format&fit=crop&q=60' },
   { id: 2, name: 'Assorted Mithai Box (Mixed Premium)', price: 850, desc: 'A curated selection of our finest sweets in a beautiful gift box.', category: 'Signature Boxes', image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&auto=format&fit=crop&q=60' },
-  { id: 3, name: 'Kaju Katli (Premium Silver Varq)', price: 900, desc: 'Premium cashew fudge with edible silver foil.', category: 'Signature Boxes', image: 'https://lh3.googleusercontent.com/pw/AP1GczPkY3j_GWpUzNGHc--FhwmzvN4bsBmQZ5ZgABfKCgM6czmIGEGdx0-wW3v4R895I6OI2cxfXN-gxyE9m0nb5cq86qRc9NqwegoLhbZQoRAGmfQxqMg=w1000' },
+  { id: 3, name: 'Kaju Katli (Premium Silver Varq)', price: 900, desc: 'Premium cashew fudge with edible silver foil.', category: 'Signature Boxes', image: 'https://i.ibb.co/CKT3PmyH/Kaju-Katli-Sweets.png' },
   { id: 4, name: 'Spicy Mixture', price: 250, desc: 'Crunchy, spicy namkeen perfect for tea time.', category: 'Savory Snacks', image: 'https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?w=500&auto=format&fit=crop&q=60' },
-  { id: 5, name: 'Motichoor Laddu (Premium Small Size)', price: 400, desc: 'Tiny gram flour pearls fried in ghee and shaped into sweet balls.', category: 'Signature Boxes', image: 'https://i.ibb.co/SwDtdztZ/file-00000000ec78720b98fbf829d1910e99.png' },
+  { id: 5, name: 'Motichoor Laddu (Premium Small Size)', price: 400, desc: 'Tiny gram flour pearls fried in ghee and shaped into sweet balls.', category: 'Signature Boxes', image: 'https://i.ibb.co/pjFrCjxF/file-00000000ec78720b98fbf829d1910e99.png' },
   { id: 6, name: 'Festive Hamper', price: 1500, desc: 'The ultimate collection of sweets and savories for celebrations.', category: 'Festive Specials', isBestseller: true, image: 'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=500&auto=format&fit=crop&q=60' },
-  { id: 7, name: 'Classic Rasgulla', price: 350, desc: 'Soft and spongy milk-solid balls soaked in rose-scented sugar syrup.', category: 'Daily Delights', image: 'https://i.ibb.co/zTYTm7mP/1774262412832.png' },
-  { id: 8, name: 'Special Laddu', price: 400, desc: 'Traditional sweet balls made with roasted flour, ghee, and premium nuts.', category: 'Daily Delights', image: 'https://i.ibb.co/yFnDQ0sP/1774262621098.png' },
-  { id: 9, name: 'Classic Barfi', price: 600, desc: 'Rich, melt-in-your-mouth milk fudge garnished with pistachios and silver leaf.', category: 'Daily Delights', image: 'https://i.ibb.co/p6DVY2ST/1774262666712.png' },
-  { id: 10, name: 'Dry Fruit Laddu (Anjeer + Badam)', price: 750, desc: 'Healthy and delicious laddu made with figs, almonds, and pure ghee.', category: 'Signature Boxes', image: 'https://i.ibb.co/xSNp6LCW/1774627909708.png' },
-  { id: 11, name: 'Pista Roll', price: 1100, desc: 'Premium pistachio rolls wrapped in cashew dough and silver leaf.', category: 'Signature Boxes', image: 'https://i.ibb.co/bg2jYLcf/file-000000005a8c720bb8cbfbf59ac5ef32.png' },
-  { id: 12, name: 'Chocolate Burfi', price: 650, desc: 'A fusion delight combining rich chocolate with traditional milk fudge.', category: 'Signature Boxes', image: 'https://i.ibb.co/3mRbqdw5/1774627715036.png' },
-  { id: 13, name: 'Anjeer Barfi', price: 800, desc: 'Nutritious and naturally sweet fig fudge loaded with crunchy nuts.', category: 'Signature Boxes', image: 'https://i.ibb.co/Sw7d4tPw/file-00000000dc10720b8cb5e249cfc2d7a5.png' },
+  { id: 7, name: 'Classic Rasgulla', price: 350, desc: 'Soft and spongy milk-solid balls soaked in rose-scented sugar syrup.', category: 'Daily Delights', image: 'https://i.ibb.co/H6p8cbW/durga-puja-bhog-indian-sweet-rassogulla-indian-sweet-rassgulla-made-sugar-syrup-cottage-cheese-chenn.jpg' },
+  { id: 8, name: 'Special Laddu', price: 400, desc: 'Traditional sweet balls made with roasted flour, ghee, and premium nuts.', category: 'Daily Delights', image: 'https://i.ibb.co/bMr5QK2c/1774262621098.png' },
+  { id: 9, name: 'Classic Barfi', price: 600, desc: 'Rich, melt-in-your-mouth milk fudge garnished with pistachios and silver leaf.', category: 'Daily Delights', image: 'https://i.ibb.co/d0YL6DFL/1774262666712.png' },
+  { id: 10, name: 'Dry Fruit Laddu (Anjeer + Badam)', price: 750, desc: 'Healthy and delicious laddu made with figs, almonds, and pure ghee.', category: 'Signature Boxes', image: 'https://i.ibb.co/F4Hkmmjr/1774627909708.png' },
+  { id: 11, name: 'Pista Roll', price: 1100, desc: 'Premium pistachio rolls wrapped in cashew dough and silver leaf.', category: 'Signature Boxes', image: 'https://i.ibb.co/b5T2BXtN/file-000000005a8c720bb8cbfbf59ac5ef32.png' },
+  { id: 12, name: 'Chocolate Burfi', price: 650, desc: 'A fusion delight combining rich chocolate with traditional milk fudge.', category: 'Signature Boxes', image: 'https://i.ibb.co/v64wLmKY/1774627715036.png' },
+  { id: 13, name: 'Anjeer Barfi', price: 800, desc: 'Nutritious and naturally sweet fig fudge loaded with crunchy nuts.', category: 'Signature Boxes', image: 'https://i.ibb.co/0VfFKqj6/file-00000000dc10720b8cb5e249cfc2d7a5.png' },
   { id: 14, name: 'Kesar Peda Box', price: 550, desc: 'Saffron-infused milk sweets, a classic offering for every occasion.', category: 'Signature Boxes', image: 'https://images.unsplash.com/photo-1559598467-f8b76c8155d0?w=500&auto=format&fit=crop&q=60' },
   { id: 15, name: 'Rose Laddu (Gulkand Style)', price: 600, desc: 'Fragrant rose-flavored laddus stuffed with sweet gulkand.', category: 'Signature Boxes', image: 'https://images.unsplash.com/photo-1579372786545-d24232daf58c?w=500&auto=format&fit=crop&q=60' },
-  { id: 16, name: 'Special Dry Fruit Halwa', price: 700, desc: 'Rich, chewy halwa packed with premium dry fruits and desi ghee.', category: 'Signature Boxes', image: 'https://i.ibb.co/q350K3s2/1774627633957.png' },
-  { id: 17, name: 'Gulab Jamun', price: 300, desc: 'Deep-fried milk solid balls soaked in cardamom-flavored sugar syrup.', category: 'Daily Delights', image: 'https://i.ibb.co/htfHJCT/vecteezy-lyangcha-langcha-or-lemcha-is-an-indian-sweet-dish-16282492.jpg' },
-  { id: 18, name: 'Rasmalai', price: 500, desc: 'Soft paneer discs soaked in thickened, sweetened, and saffron-flavored milk.', category: 'Daily Delights', image: 'https://i.ibb.co/dsRz2qwX/Rasmalai-recipe-01.jpg' },
-  { id: 19, name: 'Jalebi', price: 250, desc: 'Crispy, deep-fried spirals soaked in saffron sugar syrup.', category: 'Daily Delights', image: 'https://i.ibb.co/HfbxKGbh/Jalebi-recipe-1-1.jpg' },
-  { id: 20, name: 'Mysore Pak', price: 700, desc: 'Rich and porous sweet made from generous amounts of ghee, sugar, and gram flour.', category: 'Signature Boxes', image: 'https://i.ibb.co/nqBQLJnY/file-00000000b228720ba02e5cd832a357ef.png' },
-  { id: 21, name: 'Soan Papdi', price: 350, desc: 'Flaky, melt-in-your-mouth sweet made from gram flour, ghee, and almonds.', category: 'Daily Delights', image: 'https://i.ibb.co/Zz9SNz7G/soan-papdi.jpg' },
-  { id: 22, name: 'Mathura Peda', price: 450, desc: 'Caramelized milk fudge flavored with cardamom.', category: 'Daily Delights', image: 'https://i.ibb.co/rKsrM9hN/1-1aa21282-d6a2-4896-9bbc-c1fda1b5d368-1800x1800.jpg' },
+  { id: 16, name: 'Special Dry Fruit Halwa', price: 700, desc: 'Rich, chewy halwa packed with premium dry fruits and desi ghee.', category: 'Signature Boxes', image: 'https://i.ibb.co/q3G8Dh1H/1774627633957.png' },
+  { id: 17, name: 'Gulab Jamun', price: 300, desc: 'Deep-fried milk solid balls soaked in cardamom-flavored sugar syrup.', category: 'Daily Delights', image: 'https://i.ibb.co/Mjb8DLx/vecteezy-lyangcha-langcha-or-lemcha-is-an-indian-sweet-dish-16282492.jpg' },
+  { id: 18, name: 'Rasmalai', price: 500, desc: 'Soft paneer discs soaked in thickened, sweetened, and saffron-flavored milk.', category: 'Daily Delights', image: 'https://i.ibb.co/GvnJVFBt/Rasmalai-recipe-01.jpg' },
+  { id: 19, name: 'Jalebi', price: 250, desc: 'Crispy, deep-fried spirals soaked in saffron sugar syrup.', category: 'Daily Delights', image: 'https://i.ibb.co/TMQnjZWM/Jalebi-recipe-1-1.jpg' },
+  { id: 20, name: 'Mysore Pak', price: 700, desc: 'Rich and porous sweet made from generous amounts of ghee, sugar, and gram flour.', category: 'Signature Boxes', image: 'https://i.ibb.co/LDnjFCnw/file-00000000b228720ba02e5cd832a357ef.png' },
+  { id: 21, name: 'Soan Papdi', price: 350, desc: 'Flaky, melt-in-your-mouth sweet made from gram flour, ghee, and almonds.', category: 'Daily Delights', image: 'https://i.ibb.co/twynJLfJ/soan-papdi.jpg' },
+  { id: 22, name: 'Mathura Peda', price: 450, desc: 'Caramelized milk fudge flavored with cardamom.', category: 'Daily Delights', image: 'https://i.ibb.co/7xhFwnFD/1-1aa21282-d6a2-4896-9bbc-c1fda1b5d368-1800x1800.jpg' },
   { id: 23, name: 'Ghevar', price: 800, desc: 'Disc-shaped sweet made from flour and soaked in sugar syrup, topped with rabdi.', category: 'Festive Specials', image: 'https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?w=500&auto=format&fit=crop&q=60' },
-  { id: 24, name: 'Kalakand', price: 550, desc: 'Soft and grainy milk cake made from solidified, sweetened milk and paneer.', category: 'Daily Delights', image: 'https://i.ibb.co/1gNwm3H/Kalakand.jpg' },
-  { id: 25, name: 'Cham Cham', price: 400, desc: 'Oval-shaped Bengali sweet made from paneer and cooked in sugar syrup.', category: 'Daily Delights', image: 'https://i.ibb.co/QFVn2cdK/cham-cham.jpg' },
-  { id: 26, name: 'Besan Ladoo', price: 350, desc: 'Roasted gram flour balls sweetened with sugar and enriched with ghee.', category: 'Daily Delights', image: 'https://i.ibb.co/LzKCpTTC/Besan-Ladoo-Recipe-Festive-Sweet-4.webp' },
-  { id: 27, name: 'Balushahi', price: 300, desc: 'Flaky, deep-fried dough discs soaked in sugar syrup.', category: 'Daily Delights', image: 'https://i.ibb.co/rRbCtZ1K/product-jpeg-500x500.jpg' },
+  { id: 24, name: 'Kalakand', price: 550, desc: 'Soft and grainy milk cake made from solidified, sweetened milk and paneer.', category: 'Daily Delights', image: 'https://i.ibb.co/G3ddJ34W/Kalakand.jpg' },
+  { id: 25, name: 'Cham Cham', price: 400, desc: 'Oval-shaped Bengali sweet made from paneer and cooked in sugar syrup.', category: 'Daily Delights', image: 'https://i.ibb.co/Cp8DPTNr/cham-cham.jpg' },
+  { id: 26, name: 'Besan Ladoo', price: 350, desc: 'Roasted gram flour balls sweetened with sugar and enriched with ghee.', category: 'Daily Delights', image: 'https://i.ibb.co/MD2dxfQZ/Besan-Ladoo-Recipe-Festive-Sweet-4.webp' },
+  { id: 27, name: 'Balushahi', price: 300, desc: 'Flaky, deep-fried dough discs soaked in sugar syrup.', category: 'Daily Delights', image: 'https://i.ibb.co/F4CHzmMb/product-jpeg-500x500.jpg' },
 ];
 
 // --- Components ---
@@ -281,7 +281,7 @@ const Navbar = ({
   );
 };
 
-const Hero = () => {
+const Hero = ({ onShopNow }: { onShopNow: () => void }) => {
   return (
     <div className="relative h-[90vh] flex items-center justify-center overflow-hidden bg-teal-primary">
       {/* Background Video/Image Placeholder */}
@@ -308,6 +308,7 @@ const Hero = () => {
             Handcrafted traditional sweets with a modern twist, bringing the authentic taste of Bihar to your celebrations.
           </p>
           <motion.button 
+            onClick={onShopNow}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-gold hover:bg-gold-light text-teal-primary font-bold text-lg px-8 py-4 rounded-full shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all flex items-center mx-auto space-x-2 uppercase tracking-wide"
@@ -1173,7 +1174,7 @@ export default function App() {
       <main>
         {currentPage === 'home' ? (
           <>
-            <Hero />
+            <Hero onShopNow={() => setCurrentPage('menu')} />
             <TrustBadges />
             <ProductGallery onAddToCart={addToCart} setCurrentPage={setCurrentPage} wishlist={wishlist} onToggleWishlist={handleToggleWishlist} onProductClick={setSelectedProduct} />
             <SweetStory />
