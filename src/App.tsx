@@ -43,17 +43,17 @@ export const ALL_PRODUCTS = [
 // --- Components ---
 
 const CreatorBadge = () => (
-  <div className="fixed top-0 right-0 z-[100] bg-black/70 backdrop-blur-md text-white text-[10px] sm:text-xs px-3 py-1.5 rounded-bl-xl shadow-lg border-b border-l border-white/10 flex items-center gap-1.5 transition-all hover:bg-black/90">
+  <div className="absolute top-9 right-0 z-[100] bg-black/70 backdrop-blur-md text-white text-[10px] sm:text-xs px-3 py-1.5 rounded-bl-xl shadow-lg border-b border-l border-white/10 flex items-center gap-1.5 transition-all hover:bg-black/90">
     <span className="opacity-90">Developed by Anish Kumar</span>
     <span className="opacity-50">|</span>
     <span className="opacity-90">Instagram:</span>
     <a 
-      href="https://instagram.com/anishraaz711" 
+      href="https://instagram.com/kim_jong_un_077" 
       target="_blank" 
       rel="noopener noreferrer" 
       className="font-semibold text-saffron hover:underline tracking-wide"
     >
-      @anishraaz711
+      @kim_jong_un_077
     </a>
   </div>
 );
